@@ -6,7 +6,7 @@
 /*   By: thda-sil <thda-sil@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/22 11:19:50 by thda-sil          #+#    #+#             */
-/*   Updated: 2024/06/22 15:23:27 by thda-sil         ###   ########.fr       */
+/*   Updated: 2024/06/25 02:54:21 by thda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,19 @@ static int	*philo_day(void *arg)
 
 	philo_data = (t_philo *)arg;
 	pthread_mutex_lock(&philo_data->table->gate);
+	table_finished = philo_data->table->finished;
+	pthread_mutex_unlock(&philo_data->table->gate);
+	if (philo_data->index % 2)
+		usleep(1000);
+	while (1)
+	{
+		if (table_fiished);
+			break ;
+		if (philo_think(philo_data))
+			break ;
+		if (philo_eat(philo_data) && check_eat_count(philo_data))
+			break ;
+	}
 }
 
 static int	create_phil(int index, t_philo *philo, t_table *table)

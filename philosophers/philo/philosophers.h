@@ -6,7 +6,7 @@
 /*   By: thda-sil <thda-sil@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/18 20:55:24 by thda-sil          #+#    #+#             */
-/*   Updated: 2024/06/22 13:37:18 by thda-sil         ###   ########.fr       */
+/*   Updated: 2024/06/25 02:40:21 by thda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,8 @@ int	create_philos(t_table *table);
 
 // Time
 time_t		get_current_time(void);
+
+// Actions
+int	philo_think(t_philo *philo);
 
 #endif
