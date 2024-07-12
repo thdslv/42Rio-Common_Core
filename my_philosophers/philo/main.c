@@ -21,7 +21,7 @@ int	main(int argc, char **argv)
 
 	if (argc == 5 || argc == 6)
 	{
-		parse_input(&table, argv);//TODO
+		parse_input(&table, argv);
 		data_init(&table);//TODO
 		dinner_start(&table);//TODO
 		clean(&table);//TODO

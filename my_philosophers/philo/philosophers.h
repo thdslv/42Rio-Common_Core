@@ -80,4 +80,7 @@ typedef struct s_table
 // Utils
 void	error_exit(const char *error);
 
+//Parsing
+void	parse_input(t_table *table, char **argv);
+
 #endif
