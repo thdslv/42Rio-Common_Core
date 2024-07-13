@@ -20,6 +20,7 @@
 # include <pthread.h>
 # include <sys/time.h>
 # include <limits.h>
+# include <errno.h>
 
 /*
 	Text formating
@@ -33,6 +34,19 @@
 # define  CYAN "\033[1;36m"
 # define  WHITE "\033[1;37m"
 
+//Codes for mutex | thread functions
+typedef enum e_opcode
+{
+	LOCK,
+	UNLOCK,
+	INIT,
+	DESTROY,
+	CREATE,
+	JOIN,
+	DETATCH,
+}	t_opcode;
+
+//Readability
 typedef pthread_mutex_t	t_mtx;
 typedef struct s_table	t_table;
 
@@ -82,5 +96,8 @@ void	error_exit(const char *error);
 
 //Parsing
 void	parse_input(t_table *table, char **argv);
+
+//Safe functions
+void	*safe_malloc(size_t bytes);
 
 #endif
