@@ -6,7 +6,7 @@
 /*   By: thda-sil <thda-sil@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/12 20:50:11 by thda-sil          #+#    #+#             */
-/*   Updated: 2024/07/12 20:50:13 by thda-sil         ###   ########.fr       */
+/*   Updated: 2024/07/31 19:35:57 by thda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,11 @@ static void	handle_mutex_error(int status, t_opcode opcode)
 			"blocked waiting for mutex");
 	else if (status == EPERM)
 		error_exit("The current thread does not hold a lock on mutex");
+	else if (status == ENOMEM)
+		error_exit("The process cannot allocate enough memory to "
+			"create another mutex");
+	else if (status == EBUSY)
+		error_exit("The mutex is locked");
 }
 
 /*
