@@ -1,26 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thda-sil <thda-sil@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/24 15:20:12 by thda-sil          #+#    #+#             */
-/*   Updated: 2024/08/08 16:38:12 by thda-sil         ###   ########.fr       */
+/*   Created: 2023/10/20 17:55:57 by thda-sil          #+#    #+#             */
+/*   Updated: 2023/11/10 16:29:04 by thda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../includes/libft.h"
 
-int	main(int argc, char **argv, char **envp)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	t_command	command;
+	size_t			i;
+	unsigned char	*str;
 
-	ft_bzero(&command, sizeof(t_command));
-	if (argc > 1)
+	i = 0;
+	str = (unsigned char *)s;
+	while (i < n)
 	{
-		ft_printf("bash: %s: No such file or directory\n", argv[1]);
-		return (0);
+		if (str[i] == (unsigned char)c)
+			return ((void *)&str[i]);
+		i++;
 	}
-	
+	return (0);
 }
+
+/*#include <stdio.h>
+
+int	main(void)
+{
+	char	str[] = "Thalles";
+	int	x = 97;
+	char	*test;
+
+	test = ft_memchr(str, x, 7);
+	printf("%s", test);
+	return (0);
+}*/

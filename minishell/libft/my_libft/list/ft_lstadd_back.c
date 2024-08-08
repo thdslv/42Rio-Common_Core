@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thda-sil <thda-sil@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/24 15:20:12 by thda-sil          #+#    #+#             */
-/*   Updated: 2024/08/08 16:38:12 by thda-sil         ###   ########.fr       */
+/*   Created: 2023/11/21 11:53:43 by thda-sil          #+#    #+#             */
+/*   Updated: 2024/02/28 15:08:29 by thda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../includes/libft.h"
 
-int	main(int argc, char **argv, char **envp)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	t_command	command;
+	t_list	*last;
 
-	ft_bzero(&command, sizeof(t_command));
-	if (argc > 1)
+	if (!lst)
+		return ;
+	if (!*lst)
 	{
-		ft_printf("bash: %s: No such file or directory\n", argv[1]);
-		return (0);
+		*lst = new;
+		return ;
 	}
-	
+	last = ft_lstlast(*lst);
+	last->next = new;
 }

@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thda-sil <thda-sil@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/24 15:20:12 by thda-sil          #+#    #+#             */
-/*   Updated: 2024/08/08 16:38:12 by thda-sil         ###   ########.fr       */
+/*   Created: 2023/11/21 11:55:44 by thda-sil          #+#    #+#             */
+/*   Updated: 2024/02/28 15:03:59 by thda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../includes/libft.h"
 
-int	main(int argc, char **argv, char **envp)
+t_list	*ft_lstnew(void *content)
 {
-	t_command	command;
+	t_list	*new_node;
 
-	ft_bzero(&command, sizeof(t_command));
-	if (argc > 1)
-	{
-		ft_printf("bash: %s: No such file or directory\n", argv[1]);
-		return (0);
-	}
-	
+	new_node = (t_list *)malloc(sizeof(t_list));
+	if (!new_node)
+		return (NULL);
+	new_node->content = content;
+	new_node->next = NULL;
+	return (new_node);
 }

@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thda-sil <thda-sil@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/24 15:20:12 by thda-sil          #+#    #+#             */
-/*   Updated: 2024/08/08 16:38:12 by thda-sil         ###   ########.fr       */
+/*   Created: 2023/11/21 11:56:00 by thda-sil          #+#    #+#             */
+/*   Updated: 2024/02/28 15:05:37 by thda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../includes/libft.h"
 
-int	main(int argc, char **argv, char **envp)
+int	ft_lstsize(t_list *lst)
 {
-	t_command	command;
+	size_t	size;
 
-	ft_bzero(&command, sizeof(t_command));
-	if (argc > 1)
+	size = 0;
+	while (lst)
 	{
-		ft_printf("bash: %s: No such file or directory\n", argv[1]);
-		return (0);
+		lst = lst->next;
+		size++;
 	}
-	
+	return (size);
 }

@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thda-sil <thda-sil@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/24 15:20:12 by thda-sil          #+#    #+#             */
-/*   Updated: 2024/08/08 16:38:12 by thda-sil         ###   ########.fr       */
+/*   Created: 2024/02/20 15:45:53 by thda-sil          #+#    #+#             */
+/*   Updated: 2024/02/23 20:31:13 by thda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../includes/libft.h"
 
-int	main(int argc, char **argv, char **envp)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	t_command	command;
+	t_list	*current;
+	t_list	*tmp;
 
-	ft_bzero(&command, sizeof(t_command));
-	if (argc > 1)
+	if (!lst || !del)
+		return ;
+	current = *lst;
+	while (current)
 	{
-		ft_printf("bash: %s: No such file or directory\n", argv[1]);
-		return (0);
+		tmp = current;
+		current = current->next;
+		del(tmp->content);
+		free(tmp);
 	}
-	
+	*lst = NULL;
 }

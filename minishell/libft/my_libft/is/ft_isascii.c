@@ -1,26 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thda-sil <thda-sil@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/24 15:20:12 by thda-sil          #+#    #+#             */
-/*   Updated: 2024/08/08 16:38:12 by thda-sil         ###   ########.fr       */
+/*   Created: 2023/10/16 19:09:30 by thda-sil          #+#    #+#             */
+/*   Updated: 2023/11/10 13:06:08 by thda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
-
-int	main(int argc, char **argv, char **envp)
+int	ft_isascii(int c)
 {
-	t_command	command;
-
-	ft_bzero(&command, sizeof(t_command));
-	if (argc > 1)
-	{
-		ft_printf("bash: %s: No such file or directory\n", argv[1]);
-		return (0);
-	}
-	
+	if (c >= 0 && c <= 127)
+		return (1);
+	return (0);
 }
+
+/*#include <stdio.h>
+
+int	main(void)
+{
+	int	x;
+
+	x = 0;
+	printf("%d\n", ft_isascii(x));
+	x = 127;
+	printf("%d\n", ft_isascii(x));
+	x = 128;
+	printf("%d", ft_isascii(x));
+	return (0);
+}*/

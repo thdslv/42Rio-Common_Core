@@ -1,26 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thda-sil <thda-sil@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/24 15:20:12 by thda-sil          #+#    #+#             */
-/*   Updated: 2024/08/08 16:38:12 by thda-sil         ###   ########.fr       */
+/*   Created: 2023/10/16 19:03:40 by thda-sil          #+#    #+#             */
+/*   Updated: 2023/11/10 12:53:08 by thda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../includes/libft.h"
 
-int	main(int argc, char **argv, char **envp)
+int	ft_isalnum(int c)
 {
-	t_command	command;
-
-	ft_bzero(&command, sizeof(t_command));
-	if (argc > 1)
-	{
-		ft_printf("bash: %s: No such file or directory\n", argv[1]);
-		return (0);
-	}
-	
+	if (ft_isalpha(c) || ft_isdigit(c))
+		return (1);
+	return (0);
 }
+
+/*#include <stdio.h>
+
+int	main(void)
+{
+	int	x;
+
+	x = 48;
+	printf("%d\n", ft_isalnum(x));
+	x = 65;
+	printf("%d\n", ft_isalnum(x));
+	x = 97;
+	printf("%d\n", ft_isalnum(x));
+	x = 123;
+	printf("%d", ft_isalnum(x));
+	return(0);
+}*/

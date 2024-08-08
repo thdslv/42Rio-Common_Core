@@ -1,26 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thda-sil <thda-sil@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/24 15:20:12 by thda-sil          #+#    #+#             */
-/*   Updated: 2024/08/08 16:38:12 by thda-sil         ###   ########.fr       */
+/*   Created: 2023/10/20 16:26:50 by thda-sil          #+#    #+#             */
+/*   Updated: 2023/11/10 16:15:38 by thda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../includes/libft.h"
 
-int	main(int argc, char **argv, char **envp)
+char	*ft_strchr(const char *s, int c)
 {
-	t_command	command;
+	size_t	i;
 
-	ft_bzero(&command, sizeof(t_command));
-	if (argc > 1)
+	i = 0;
+	while (i < ft_strlen(s) + 1)
 	{
-		ft_printf("bash: %s: No such file or directory\n", argv[1]);
-		return (0);
+		if (s[i] == (unsigned char)c)
+			return ((char *)&s[i]);
+		i++;
 	}
-	
+	return (0);
 }
+
+/*#include <stdio.h>
+
+int	main(void)
+{
+	char	str[] = "Thalles";
+	int		x;
+
+	x = 97;
+	printf("%s", ft_strchr(str, x));
+	return (0);
+}*/

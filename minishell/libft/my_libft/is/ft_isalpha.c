@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thda-sil <thda-sil@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/24 15:20:12 by thda-sil          #+#    #+#             */
-/*   Updated: 2024/08/08 16:38:12 by thda-sil         ###   ########.fr       */
+/*   Created: 2023/10/16 18:48:54 by thda-sil          #+#    #+#             */
+/*   Updated: 2023/11/10 12:36:45 by thda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
-
-int	main(int argc, char **argv, char **envp)
+int	ft_isalpha(int c)
 {
-	t_command	command;
-
-	ft_bzero(&command, sizeof(t_command));
-	if (argc > 1)
-	{
-		ft_printf("bash: %s: No such file or directory\n", argv[1]);
-		return (0);
-	}
-	
+	if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
+		return (1);
+	return (0);
 }
+
+/*#include <stdio.h>
+
+int	main(void)
+{
+	char	x;
+
+	x = 97;
+	printf("%d\n", ft_isalpha(x));
+	x = 48;
+	printf("%d\n", ft_isalpha(x));
+	return (0);
+}*/

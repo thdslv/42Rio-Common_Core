@@ -1,26 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thda-sil <thda-sil@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/24 15:20:12 by thda-sil          #+#    #+#             */
-/*   Updated: 2024/08/08 16:38:12 by thda-sil         ###   ########.fr       */
+/*   Created: 2023/10/16 20:31:18 by thda-sil          #+#    #+#             */
+/*   Updated: 2023/11/13 20:13:20 by thda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../includes/libft.h"
 
-int	main(int argc, char **argv, char **envp)
+void	*ft_memset(void *s, int c, size_t n)
 {
-	t_command	command;
+	size_t			i;
+	unsigned char	*str;
 
-	ft_bzero(&command, sizeof(t_command));
-	if (argc > 1)
+	str = (unsigned char *)s;
+	i = 0;
+	while (i < n)
 	{
-		ft_printf("bash: %s: No such file or directory\n", argv[1]);
-		return (0);
+		str[i] = c;
+		i++;
 	}
-	
+	return (s);
 }
+
+/*#include <stdio.h>
+
+int	main(void)
+{
+	char 	str[] = "Thalles da Silva";
+	int	a;
+
+	a = 65;
+	printf("Original: %s\n", str);
+	ft_memset(str, a, 7);
+	printf("Modified: %s\n", str);
+	return (0);
+}*/

@@ -1,26 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putptr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thda-sil <thda-sil@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/24 15:20:12 by thda-sil          #+#    #+#             */
-/*   Updated: 2024/08/08 16:38:12 by thda-sil         ###   ########.fr       */
+/*   Created: 2024/02/07 19:12:35 by thda-sil          #+#    #+#             */
+/*   Updated: 2024/02/29 20:06:16 by thda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../includes/libft.h"
 
-int	main(int argc, char **argv, char **envp)
+int	ft_putptr(unsigned long int ptr, t_bool is_upper)
 {
-	t_command	command;
-
-	ft_bzero(&command, sizeof(t_command));
-	if (argc > 1)
-	{
-		ft_printf("bash: %s: No such file or directory\n", argv[1]);
-		return (0);
-	}
-	
+	if (!ptr)
+		return (ft_putstr("(nil)"));
+	return (ft_putstr("0x") + ft_putnbr_base(ptr, 16, is_upper));
 }

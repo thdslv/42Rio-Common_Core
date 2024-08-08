@@ -1,26 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thda-sil <thda-sil@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/24 15:20:12 by thda-sil          #+#    #+#             */
-/*   Updated: 2024/08/08 16:38:12 by thda-sil         ###   ########.fr       */
+/*   Created: 2023/11/01 19:57:00 by thda-sil          #+#    #+#             */
+/*   Updated: 2023/11/13 20:27:05 by thda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
-
-int	main(int argc, char **argv, char **envp)
+#include "../includes/libft.h"
+/*#include <stdio.h>
+void	function(unsigned int x, char *p)
 {
-	t_command	command;
+	printf("%i => %s\n", x, p);
+}*/
 
-	ft_bzero(&command, sizeof(t_command));
-	if (argc > 1)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
+{
+	unsigned int	i;
+
+	if (!s || !f)
+		return ;
+	i = 0;
+	while (s[i])
 	{
-		ft_printf("bash: %s: No such file or directory\n", argv[1]);
-		return (0);
+		f(i, &s[i]);
+		i++;
 	}
-	
 }
+
+/*int	main()
+{
+	char	str[] = "test";
+
+	ft_striteri(str, function);
+	return (0);
+}*/

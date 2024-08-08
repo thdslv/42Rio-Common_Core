@@ -1,26 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thda-sil <thda-sil@student.42.rio>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/24 15:20:12 by thda-sil          #+#    #+#             */
-/*   Updated: 2024/08/08 16:38:12 by thda-sil         ###   ########.fr       */
+/*   Created: 2023/10/17 05:26:45 by thda-sil          #+#    #+#             */
+/*   Updated: 2024/02/29 19:58:17 by thda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "../includes/libft.h"
 
-int	main(int argc, char **argv, char **envp)
+int	ft_putendl_fd(const char *s, int fd)
 {
-	t_command	command;
+	int	i;
 
-	ft_bzero(&command, sizeof(t_command));
-	if (argc > 1)
-	{
-		ft_printf("bash: %s: No such file or directory\n", argv[1]);
-		return (0);
-	}
-	
+	i = 0;
+	i += ft_putstr_fd(s, fd);
+	i += ft_putstr_fd("\n", fd);
+	return (i);
 }
+
+/*#include <stdio.h>
+
+int	main(void)
+{
+	char	*str;
+
+	str = "Hi Moulinette";
+	ft_putendl_fd(str, 1);
+	return (0);
+}*/
